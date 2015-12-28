@@ -12,7 +12,7 @@ The project contains lights, camera and geometry elements that are renderer inde
 
 The project also contains a [mental ray](http://www.nvidia-arc.com/mentalray.html) specific 'Assembled' scene along with a file with only the materials for mental ray. The mental ray materials make use of the [mila layered materials library](http://blog.mentalray.com/2014/04/18/layering-in-maya2015/).
 
-The project was created in Maya 2016 SP4. 
+The project was created in [Maya 2016 SP4](https://knowledge.autodesk.com/support/maya/downloads/caas/downloads/content/autodesk-maya-2016-service-pack-4.html). 
 
 The frames were rendered with a camera that animates through the static camera positions. Frame 1 corresponds to Light Stage Camera 0. Frame 2 to Light Stage Camera 1 and so on.
 
