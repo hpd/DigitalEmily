@@ -19,5 +19,9 @@ Resources
 
 The base models and textures used in this project can be found on the main page for the [Digital Emily project](http://gl.ict.usc.edu/Research/DigitalEmily2/)
 
+Example Render
+- 
+
+![Digital Emily - mental ray - Camera 2](https://raw.githubusercontent.com/hpd/DigitalEmily/master/maya/images/Emily_2_1_Assemble_mentalray/1080x1680/jpg/Emily_2_1_Assemble_mentalray.0003.jpg "Digital Emily - mental ray - Camera 2")
 
 
