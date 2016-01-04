@@ -3,7 +3,7 @@ Digital Emily
 
 This is a set of assets based on the [Digital Emily project](http://gl.ict.usc.edu/Research/DigitalEmily2/), using data captured in the [Light Stage](http://gl.ict.usc.edu/LightStages/). These were created with an eye towards facilitating further experimentation with the existing dataset, extending material definitions for [Vray](https://www.vray.com/) and the skin shader in [OSL](https://github.com/imageworks/OpenShadingLanguage) provided on the main site. 
 
-This is a personal project from Haarm-Pieter Duiker of Duiker Research.
+This is a personal project from Haarm-Pieter Duiker of [Duiker Research](http://duikerresearch.com/).
 
 Repository Contents
 -
