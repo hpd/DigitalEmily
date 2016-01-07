@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
-//Name: Emily_2_1_Materials_mentalray_v014.ma
-//Last modified: Sun, Dec 27, 2015 09:08:29 PM
+//Name: Emily_2_1_Materials_mentalray.ma
+//Last modified: Wed, Jan 6, 2015 08:32:00 PM
 //Codeset: UTF-8
 requires maya "2016";
 requires -nodeType "mib_texture_lookup2" -nodeType "mila_material" -nodeType "mila_layer"
@@ -4611,7 +4611,7 @@ createNode mila_mix_glossy_reflection -n "mila_mix_glossy_reflection3";
 createNode file -n "file4";
 	rename -uid "65D540A8-404F-B01E-97C1-1E8530D4F304";
 	setAttr ".cg" -type "float3" 0.5 0.5 0.5 ;
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/Emily_2_1_Textures/Textures/Color_raw/00_specular_unlit_raw.exr";
+	setAttr ".ftn" -type "string" "sourceimages/Emily_2_1_Textures/Textures/Color_raw/00_specular_unlit_raw.exr";
 	setAttr ".cs" -type "string" "scene-linear Rec 709/sRGB";
 createNode place2dTexture -n "place2dTexture9";
 	rename -uid "EA4F6E59-154C-ABA2-3CE2-EE99A3BA3082";
@@ -4623,7 +4623,7 @@ createNode mila_diffuse_reflection -n "mila_diffuse_reflection13";
 	rename -uid "D1A6EABD-BB40-B592-0633-42A39B9142BD";
 createNode file -n "file2";
 	rename -uid "0F88E290-D44D-C0C0-4AD0-C4AF3A34725F";
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/Emily_2_1_Textures/Textures/Color_raw/00_single_scatter_raw.exr";
+	setAttr ".ftn" -type "string" "sourceimages/Emily_2_1_Textures/Textures/Color_raw/00_single_scatter_raw.exr";
 	setAttr ".ft" 0;
 	setAttr ".exp" 1.5;
 	setAttr ".cs" -type "string" "scene-linear Rec 709/sRGB";
@@ -4639,7 +4639,7 @@ createNode mila_scatter -n "mila_scatter4";
 	setAttr ".S11" 10;
 createNode file -n "file3";
 	rename -uid "31E67409-D841-0959-B7F0-1084298B3E14";
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/Emily_2_1_Textures/Textures/Color_raw/00_diffuse_unlit_raw.exr";
+	setAttr ".ftn" -type "string" "sourceimages/Emily_2_1_Textures/Textures/Color_raw/00_diffuse_unlit_raw.exr";
 	setAttr ".ft" 0;
 	setAttr ".cs" -type "string" "scene-linear Rec 709/sRGB";
 createNode place2dTexture -n "place2dTexture8";
@@ -4662,7 +4662,7 @@ createNode mib_texture_lookup2 -n "mib_texture_lookup21";
 	setAttr ".S01" 1;
 createNode mentalrayTexture -n "mentalrayTexture3";
 	rename -uid "DB7F8C60-BE48-C91E-18F8-0187642637FB";
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/Emily_2_1_Textures/Textures/Displacement/00_displacement.exr";
+	setAttr ".ftn" -type "string" "sourceimages/Emily_2_1_Textures/Textures/Displacement/00_displacement.exr";
 createNode multiplyDivide -n "mr_Disp_Microgeo_Mult_01";
 	rename -uid "22B177F1-1749-C748-5F34-E284A149F3DE";
 	setAttr ".i2" -type "float3" 0.0099999998 0.0099999998 0.0099999998 ;
@@ -4671,7 +4671,7 @@ createNode mib_texture_lookup2 -n "mib_texture_lookup22";
 	setAttr ".S01" 1;
 createNode mentalrayTexture -n "mentalrayTexture4";
 	rename -uid "2F6B2FFC-444F-EFE7-06C2-E5A0A208264C";
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/Emily_2_1_Textures/Textures/Displacement/00_displacement_micro.exr";
+	setAttr ".ftn" -type "string" "sourceimages/Emily_2_1_Textures/Textures/Displacement/00_displacement_micro.exr";
 createNode materialInfo -n "materialInfo19";
 	rename -uid "F121FB5E-BA4E-61C4-1110-CF9DF2F78169";
 createNode shadingEngine -n "mila_plicaSG";
@@ -4828,7 +4828,7 @@ createNode mila_diffuse_reflection -n "mila_diffuse_reflection8";
 createNode file -n "file5";
 	rename -uid "4730CB62-4042-D475-9AFD-C28DB922CA7B";
 	setAttr ".cg" -type "float3" 0.050000001 0.050000001 0.050000001 ;
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/white_512.exr";
+	setAttr ".ftn" -type "string" "sourceimages/white_512.exr";
 	setAttr ".cs" -type "string" "scene-linear Rec 709/sRGB";
 createNode place2dTexture -n "place2dTexture10";
 	rename -uid "E7F02C6F-344B-15F3-5C0C-88A13E2061E3";
@@ -4839,7 +4839,7 @@ createNode mila_scatter -n "mila_scatter1";
 	setAttr ".S11" 10;
 createNode file -n "mr_Eye_Outter_Color_01";
 	rename -uid "18B237D7-6743-F99B-D7FE-8F8C3D52F5F8";
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Outter_Color_01.png";
+	setAttr ".ftn" -type "string" "sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Outter_Color_01.png";
 	setAttr ".ft" 0;
 	setAttr ".exp" 0.25;
 	setAttr ".cs" -type "string" "scene-linear Rec 709/sRGB";
@@ -4847,7 +4847,7 @@ createNode place2dTexture -n "place2dTexture1";
 	rename -uid "21D36938-3440-AFD7-61D8-3787D2A5DF47";
 createNode file -n "Eye_Outter_Bump_01";
 	rename -uid "14BDD57F-194E-E189-A0E5-F4978D827C1D";
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Outter_Bump_01.png";
+	setAttr ".ftn" -type "string" "sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Outter_Bump_01.png";
 	setAttr ".cs" -type "string" "scene-linear Rec 709/sRGB";
 createNode place2dTexture -n "place2dTexture12";
 	rename -uid "76CAC80E-4043-38AC-D55B-2988B7CBB572";
@@ -4902,7 +4902,7 @@ createNode mila_diffuse_reflection -n "mila_diffuse_reflection11";
 	rename -uid "16C2171D-2E40-DADA-2805-93891C7BE699";
 createNode file -n "Eye_Inner_Iris_Bump";
 	rename -uid "0EC9F751-A643-BDDE-AF6C-F08EA0C58D11";
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Inner_Iris_Bump_01.png";
+	setAttr ".ftn" -type "string" "sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Inner_Iris_Bump_01.png";
 	setAttr ".cs" -type "string" "scene-linear Rec 709/sRGB";
 createNode place2dTexture -n "place2dTexture11";
 	rename -uid "B0CEDEBF-8842-1AA6-DB71-B3AE98D6A7F0";
@@ -4913,7 +4913,7 @@ createNode mila_scatter -n "mila_scatter3";
 	setAttr ".S11" 10;
 createNode file -n "mr_Eye_Inner_Iris_Color_01";
 	rename -uid "00E1E2AF-DB48-FDFD-5E74-6DA7D48041D6";
-	setAttr ".ftn" -type "string" "/Users/hpd/work/client/hpd/lookdev/DigitalEmily/maya/sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Inner_Iris_Color_01.png";
+	setAttr ".ftn" -type "string" "sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Inner_Iris_Color_01.png";
 	setAttr ".ft" 0;
 	setAttr ".exp" -0.20000000298023224;
 	setAttr ".cs" -type "string" "scene-linear Rec 709/sRGB";
@@ -5291,4 +5291,4 @@ connectAttr "mib_texture_lookup22.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Eye_Inner_Iris_Bump.msg" ":defaultTextureList1.tx" -na;
 connectAttr "Eye_Outter_Bump_01.msg" ":defaultTextureList1.tx" -na;
 connectAttr "mila_eye_outer.S18" ":internal_soloShader.ic";
-// End of Emily_2_1_Materials_mentalray_v014.ma
+// End of Emily_2_1_Materials_mentalray.ma
