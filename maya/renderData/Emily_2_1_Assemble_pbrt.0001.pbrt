@@ -1,0 +1,329 @@
+# Exported for PBRT Version : v3 Book
+
+Film "image"
+	"integer yresolution" [5218]
+	"float scale" [1.41400003433]
+	"float diagonal" [43.2379446219]
+	"integer xresolution" [3482]
+
+Sampler "halton"
+	"integer pixelsamples" [1024]
+
+PixelFilter "gaussian"
+	"float ywidth" [2.0]
+	"float xwidth" [2.0]
+	"float alpha" [2.0]
+
+Integrator "path"
+	"integer maxdepth" [5]
+
+Accelerator "bvh"
+	"string splitmethod" ["sah"]
+	"integer maxnodeprims" [4]
+
+# Camera begin
+Scale -1 1 1
+LookAt -119.556000 3.044480 103.007000 -115.837445 3.101748 99.664984 -0.009894 0.999932 0.006126
+Camera "perspective"
+	"float fov" [8.67730599325]
+	"float screenwindow" [-1.0 1.0 -1.49856404365 1.49856404365]
+# Camera end
+
+WorldBegin
+	Texture "file6" "spectrum" "imagemap"
+		"float vdelta" [0.0]
+		"float udelta" [0.0]
+		"string filename" ["../sourceimages/Emily_2_1_Textures/Textures/Color_raw/00_diffuse_unlit_raw.exr"]
+		"float uscale" [1.0]
+		"float vscale" [1.0]
+		"bool gamma" ["false"]
+
+	Texture "file7" "spectrum" "imagemap"
+		"float vdelta" [0.0]
+		"float udelta" [0.0]
+		"string filename" ["../sourceimages/Emily_2_1_Textures/Textures/Color_raw/00_single_scatter_raw.exr"]
+		"float uscale" [1.0]
+		"float vscale" [1.0]
+		"bool gamma" ["false"]
+
+	Texture "skin_scatter_scale" "spectrum" "scale"
+		"texture tex1" ["file7"]
+		"rgb tex2" [1.0 0.75 0.675000011921]
+
+	Texture "file8" "spectrum" "imagemap"
+		"float vdelta" [0.0]
+		"float udelta" [0.0]
+		"string filename" ["../sourceimages/Emily_2_1_Textures/Textures/Color_raw/00_specular_unlit_raw.exr"]
+		"float uscale" [1.0]
+		"float vscale" [1.0]
+		"bool gamma" ["false"]
+
+	Texture "skin_spec_scale" "spectrum" "scale"
+		"texture tex1" ["file8"]
+		"rgb tex2" [2.0 2.0 2.0]
+
+	Texture "_displacement" "float" "imagemap"
+		"float vdelta" [0.0]
+		"float udelta" [0.0]
+		"string filename" ["../sourceimages/Emily_2_1_Textures/Textures/Displacement/00_displacement.exr"]
+		"float uscale" [1.0]
+		"float vscale" [1.0]
+		"bool gamma" ["false"]
+
+	Texture "_displacement_micro" "float" "imagemap"
+		"float vdelta" [0.0]
+		"float udelta" [0.0]
+		"string filename" ["../sourceimages/Emily_2_1_Textures/Textures/Displacement/00_displacement_micro.exr"]
+		"float uscale" [1.0]
+		"float vscale" [1.0]
+		"bool gamma" ["false"]
+
+	Texture "skin_disp_micro_scale" "float" "scale"
+		"texture tex1" ["_displacement_micro"]
+		"float tex2" [0.10000000149]
+
+	Texture "skin_disp_add_part1" "float" "mix"
+		"float amount" [0.10000000149]
+		"texture tex1" ["_displacement"]
+		"texture tex2" ["skin_disp_micro_scale"]
+
+	Texture "skin_disp_add_part2" "float" "scale"
+		"texture tex1" ["skin_disp_add_part1"]
+		"float tex2" [2.0]
+
+	Texture "skin_bump_scale" "float" "scale"
+		"texture tex1" ["skin_disp_add_part2"]
+		"float tex2" [-0.0120000001043]
+
+	Texture "file12" "spectrum" "imagemap"
+		"float vdelta" [0.0]
+		"float udelta" [0.0]
+		"string filename" ["../sourceimages/Eye_Outer_Blend_Ramp.exr"]
+		"float uscale" [1.0]
+		"float vscale" [1.0]
+		"bool gamma" ["true"]
+
+	Texture "file9" "spectrum" "imagemap"
+		"float vdelta" [0.0]
+		"float udelta" [0.0]
+		"string filename" ["../sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Outter_Color_01.png"]
+		"float uscale" [1.0]
+		"float vscale" [1.0]
+		"bool gamma" ["false"]
+
+	Texture "file10" "spectrum" "imagemap"
+		"float vdelta" [0.0]
+		"float udelta" [0.0]
+		"string filename" ["../sourceimages/Emily_2_1_Textures/Textures/Color_unpainted/Eye_Inner_Iris_Color_01.png"]
+		"float uscale" [1.0]
+		"float vscale" [1.0]
+		"bool gamma" ["false"]
+
+	Texture "eye_inner_scale" "spectrum" "scale"
+		"texture tex1" ["file10"]
+		"rgb tex2" [1.0 1.0 1.0]
+
+	MakeNamedMaterial "plica"
+		"float index" [1.5]
+		"float vroughness" [0.0010000000475]
+		"float uroughness" [0.0010000000475]
+		"rgb Kr" [1.0 1.0 1.0]
+		"rgb Kt" [1.0 1.0 1.0]
+		"bool remaproughness" ["true"]
+		"string type" ["glass"]
+
+	MakeNamedMaterial "emily_skin"
+		"float scale" [2.0]
+		"float g" [0.0]
+		"texture Kd" ["file6"]
+		"float vroughness" [0.00300000002608]
+		"float uroughness" [0.00300000002608]
+		"texture mfp" ["skin_scatter_scale"]
+		"texture Kr" ["skin_spec_scale"]
+		"float eta" [1.33000004292]
+		"texture bumpmap" ["skin_bump_scale"]
+		"rgb Kt" [1.0 1.0 1.0]
+		"bool remaproughness" ["true"]
+		"string type" ["kdsubsurface"]
+
+	MakeNamedMaterial "eye_outer_sclera"
+		"rgb opacity" [1.0 1.0 1.0]
+		"float index" [1.33299994469]
+		"texture Kd" ["file9"]
+		"float roughness" [0.10000000149]
+		"rgb Ks" [0.25 0.25 0.25]
+		"rgb Kr" [0.0 0.0 0.0]
+		"bool remaproughness" ["true"]
+		"string type" ["uber"]
+
+	MakeNamedMaterial "eye_outer_cornea"
+		"bool remaproughness" ["true"]
+		"rgb Kr" [1.0 1.0 1.0]
+		"string type" ["glass"]
+		"float index" [1.33399999142]
+		"rgb Kt" [1.0 1.0 1.0]
+
+	MakeNamedMaterial "eye_outer_sclera_cornea_mix"
+		"string namedmaterial2" ["eye_outer_cornea"]
+		"texture amount" ["file12"]
+		"string type" ["mix"]
+		"string namedmaterial1" ["eye_outer_sclera"]
+
+	MakeNamedMaterial "eye_inner"
+		"float sigma" [0.0]
+		"string type" ["matte"]
+		"texture Kd" ["eye_inner_scale"]
+
+	MakeNamedMaterial "lashes_uber"
+		"rgb opacity" [0.75 0.75 0.75]
+		"float index" [1.5]
+		"rgb Kd" [0.019999999553 0.019999999553 0.019999999553]
+		"float roughness" [0.10000000149]
+		"rgb Ks" [0.00999999977648 0.00999999977648 0.00999999977648]
+		"rgb Kr" [0.0 0.0 0.0]
+		"bool remaproughness" ["true"]
+		"string type" ["uber"]
+
+	ObjectBegin "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_Plica_trans"
+		# Maya Geometry : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_Plica_trans|GeometryCache_Eye_Plica_mesh
+		NamedMaterial "plica"
+		Shape "plymesh"
+			"float alpha" [1.0]
+			"string filename" ["__GeometryCache__GeometryCache_Eyes_01_trans__GeometryCache_Eyes_geo_01_trans__GeometryCache_Eye_Plica_trans__GeometryCache_Eye_Plica_mesh.ply"]
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_Plica_trans
+		Transform 
+			[1.0 0.0 0.0 0.0
+			 0.0 -4.37113880647e-08 1.0 0.0
+			 0.0 -1.0 -4.37113880647e-08 0.0
+			 0.0 0.0 0.0 1.0]
+		ObjectInstance "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_Plica_trans"
+	AttributeEnd
+
+	AttributeBegin
+		Transform 
+			[-1.73977842459 0.0505696633238 0.18197181785 0.0
+			 -0.107862261573 -0.298734767336 -0.948221108873 0.0
+			 0.00366290653425 -0.953898582155 0.300106777794 0.0
+			 12.7055991816 42.7958258473 125.921847975 1.0]
+		# Maya Geometry : |Lights:Flash_Pivot|Lights:Flash_Transform|Flash_Standin_pbrt|Flash_Standin_pbrtShape
+		AreaLightSource "diffuse"
+			"rgb scale" [1.0 1.0 1.0]
+			"rgb L" [12800.0 12800.0 12800.0]
+			"integer nsamples" [1]
+		Shape "plymesh"
+			"float alpha" [1.0]
+			"string filename" ["__Lights__Flash_Pivot__Lights__Flash_Transform__Flash_Standin_pbrt__Flash_Standin_pbrtShape.ply"]
+	AttributeEnd
+
+	ObjectBegin "|GeometryCache|GeometryCache_Emily_head_trans"
+		# Maya Geometry : |GeometryCache|GeometryCache_Emily_head_trans|GeometryCache_Emily_head_mesh
+		NamedMaterial "emily_skin"
+		Shape "plymesh"
+			"float alpha" [1.0]
+			"string filename" ["__GeometryCache__GeometryCache_Emily_head_trans__GeometryCache_Emily_head_mesh.ply"]
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |GeometryCache|GeometryCache_Emily_head_trans
+		Transform 
+			[1.0 0.0 0.0 0.0
+			 0.0 -4.37113880647e-08 1.0 0.0
+			 0.0 -1.0 -4.37113880647e-08 0.0
+			 0.0 0.0 0.0 1.0]
+		ObjectInstance "|GeometryCache|GeometryCache_Emily_head_trans"
+	AttributeEnd
+
+	ObjectBegin "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_R_01_trans|GeometryCache_Eye_Outter_01_trans"
+		# Maya Geometry : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_R_01_trans|GeometryCache_Eye_Outter_01_trans|GeometryCache_Eye_Outter_01_mesh
+		NamedMaterial "eye_outer_sclera_cornea_mix"
+		Shape "plymesh"
+			"float alpha" [1.0]
+			"string filename" ["__GeometryCache__GeometryCache_Eyes_01_trans__GeometryCache_Eyes_geo_01_trans__GeometryCache_Eye_R_01_trans__GeometryCache_Eye_Outter_01_trans__GeometryCache_Eye_Outter_01_mesh.ply"]
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_R_01_trans|GeometryCache_Eye_Outter_01_trans
+		Transform 
+			[-0.997891606006 -0.0293325602536 0.057895181817 0.0
+			 0.0606081592753 -0.102094539822 0.992926728341 0.0
+			 0.0232142945929 -0.994342106904 -0.103657074362 0.0
+			 -3.63425778217 9.00700038386 2.64885466161 1.0]
+		ObjectInstance "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_R_01_trans|GeometryCache_Eye_Outter_01_trans"
+	AttributeEnd
+
+	ObjectBegin "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_L_01_trans|GeometryCache_Eye_Outter_01_trans"
+		# Maya Geometry : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_L_01_trans|GeometryCache_Eye_Outter_01_trans|GeometryCache_Eye_Outter_01_mesh
+		NamedMaterial "eye_outer_sclera_cornea_mix"
+		Shape "plymesh"
+			"float alpha" [1.0]
+			"string filename" ["__GeometryCache__GeometryCache_Eyes_01_trans__GeometryCache_Eyes_geo_01_trans__GeometryCache_Eye_L_01_trans__GeometryCache_Eye_Outter_01_trans__GeometryCache_Eye_Outter_01_mesh.ply"]
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_L_01_trans|GeometryCache_Eye_Outter_01_trans
+		Transform 
+			[0.980603732975 -0.00690933055471 -0.195878993244 0.0
+			 0.195411281791 -0.0429908114712 0.9797786782 0.0
+			 -0.0151906145245 -0.999051471438 -0.0408067915938 0.0
+			 2.37968663791 9.28561862686 2.218727825 1.0]
+		ObjectInstance "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_L_01_trans|GeometryCache_Eye_Outter_01_trans"
+	AttributeEnd
+
+	ObjectBegin "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_R_01_trans|GeometryCache_Eye_Inner_01_trans"
+		# Maya Geometry : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_R_01_trans|GeometryCache_Eye_Inner_01_trans|GeometryCache_Eye_Inner_01_mesh
+		NamedMaterial "eye_inner"
+		Shape "plymesh"
+			"float alpha" [1.0]
+			"string filename" ["__GeometryCache__GeometryCache_Eyes_01_trans__GeometryCache_Eyes_geo_01_trans__GeometryCache_Eye_R_01_trans__GeometryCache_Eye_Inner_01_trans__GeometryCache_Eye_Inner_01_mesh.ply"]
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_R_01_trans|GeometryCache_Eye_Inner_01_trans
+		Transform 
+			[-0.998283208388 -0.0229042624641 0.0539059756328 0.0
+			 0.0555148367114 -0.07664445128 0.995511900854 0.0
+			 0.0186698685693 -0.996795374511 -0.0777843965599 0.0
+			 -3.63425778217 9.00700038386 2.64885466161 1.0]
+		ObjectInstance "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_R_01_trans|GeometryCache_Eye_Inner_01_trans"
+	AttributeEnd
+
+	ObjectBegin "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_Lashes_trans"
+		# Maya Geometry : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_Lashes_trans|GeometryCache_Eye_Lashes_mesh
+		NamedMaterial "lashes_uber"
+		Shape "plymesh"
+			"float alpha" [1.0]
+			"string filename" ["__GeometryCache__GeometryCache_Eyes_01_trans__GeometryCache_Eyes_geo_01_trans__GeometryCache_Eye_Lashes_trans__GeometryCache_Eye_Lashes_mesh.ply"]
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_Lashes_trans
+		Transform 
+			[1.0 0.0 0.0 0.0
+			 0.0 -4.37113880647e-08 1.0 0.0
+			 0.0 -1.0 -4.37113880647e-08 0.0
+			 0.0 0.0 0.0 1.0]
+		ObjectInstance "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_Lashes_trans"
+	AttributeEnd
+
+	ObjectBegin "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_L_01_trans|GeometryCache_Eye_Inner_01_trans"
+		# Maya Geometry : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_L_01_trans|GeometryCache_Eye_Inner_01_trans|GeometryCache_Eye_Inner_01_mesh
+		NamedMaterial "eye_inner"
+		Shape "plymesh"
+			"float alpha" [1.0]
+			"string filename" ["__GeometryCache__GeometryCache_Eyes_01_trans__GeometryCache_Eyes_geo_01_trans__GeometryCache_Eye_L_01_trans__GeometryCache_Eye_Inner_01_trans__GeometryCache_Eye_Inner_01_mesh.ply"]
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_L_01_trans|GeometryCache_Eye_Inner_01_trans
+		Transform 
+			[0.979759672078 -0.00072778228739 -0.200176217085 0.0
+			 0.200133844688 -0.0173392515177 0.979615242716 0.0
+			 -0.00418385245522 -0.999849279499 -0.016842642577 0.0
+			 2.37968663791 9.28561862686 2.218727825 1.0]
+		ObjectInstance "|GeometryCache|GeometryCache_Eyes_01_trans|GeometryCache_Eyes_geo_01_trans|GeometryCache_Eye_L_01_trans|GeometryCache_Eye_Inner_01_trans"
+	AttributeEnd
+
+WorldEnd
