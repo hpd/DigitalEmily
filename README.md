@@ -1,7 +1,7 @@
 Digital Emily
 = 
 
-This is a set of assets based on the [Digital Emily project](http://gl.ict.usc.edu/Research/DigitalEmily2/), using data captured in the [Light Stage](http://gl.ict.usc.edu/LightStages/). These were created with an eye towards facilitating further experimentation with the existing dataset, extending material definitions for [Vray](https://www.vray.com/) and the skin shader in [OSL](https://github.com/imageworks/OpenShadingLanguage) provided on the main site. 
+This is a set of assets based on the [Digital Emily project](https://vgl.ict.usc.edu/research/DigitalEmily2/), using data captured in the [Light Stage](https://vgl.ict.usc.edu/LightStages/). These were created with an eye towards facilitating further experimentation with the existing dataset, extending material definitions for [Vray](https://www.vray.com/) and the skin shader in [OSL](https://github.com/imageworks/OpenShadingLanguage) provided on the main site. 
 
 This is a personal project from Haarm-Pieter Duiker of [Duiker Research](http://duikerresearch.com/).
 
@@ -21,7 +21,7 @@ The frames were rendered with a camera that animates through the static camera p
 Resources / References
 -
 
-The base models and textures used in this project can be found on the main page for the [Digital Emily project](http://gl.ict.usc.edu/Research/DigitalEmily2/)
+The base models and textures used in this project can be found on the main page for the [Digital Emily project](https://vgl.ict.usc.edu/research/DigitalEmily2/)
 
 Further information about the dataset can be found on the [Wikihuman](http://www.wikihuman.org/) site [here](http://www.wikihuman.org/index.php/off-topic/emily-2-1/) and [here](http://www.wikihuman.org/index.php/off-topic/digital-emily-2-data-now-available/)
 
